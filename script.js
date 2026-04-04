@@ -50,54 +50,73 @@
   // ── Mobile menu ────────────────────────────────────────────
   const toggle = document.getElementById('nav-toggle');
   const menu = document.getElementById('nav-links');
+  const closeBtn = document.getElementById('nav-close');
+
+  function openMenu() {
+    toggle.classList.add('open');
+    menu.classList.add('open');
+  }
+
+  function closeMenu() {
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+  }
 
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    menu.classList.toggle('open');
+    if (menu.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
+  // Close button (×) inside the mobile menu
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
+  // Close menu when a nav link is clicked
   menu.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      menu.classList.remove('open');
-    });
+    a.addEventListener('click', closeMenu);
   });
 
   // ── Lightbox ───────────────────────────────────────────────
   const lightbox = document.getElementById('lightbox');
-  const lightboxImg = lightbox.querySelector('.lightbox-img');
-  const lightboxClose = lightbox.querySelector('.lightbox-close');
+  if (lightbox) {
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
 
-  document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
-    item.addEventListener('click', () => {
-      const src = item.getAttribute('data-full');
-      lightboxImg.src = src;
-      lightboxImg.alt = item.querySelector('img')?.alt || '';
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+    document.querySelectorAll('.gallery-item[data-full]').forEach((item) => {
+      item.addEventListener('click', () => {
+        const src = item.getAttribute('data-full');
+        lightboxImg.src = src;
+        lightboxImg.alt = item.querySelector('img')?.alt || '';
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
     });
-  });
 
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    // Clear src after animation
-    setTimeout(() => { lightboxImg.src = ''; }, 300);
-  }
-
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      // Clear src after animation
+      setTimeout(() => { lightboxImg.src = ''; }, 300);
     }
-  });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
 
   // ── Hero particle canvas ──────────────────────────────────
   const canvas = document.getElementById('hero-canvas');

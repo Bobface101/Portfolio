@@ -64,6 +64,19 @@ img { max-width: 100%; display: block; }
   color: #e9f6f2;
 }
 
+/* Inline links (e.g. Waterloo Rocketry) */
+.inline-link {
+  color: var(--accent-2);
+  text-decoration: underline;
+  text-decoration-color: rgba(126, 184, 189, 0.4);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.3s;
+}
+
+.inline-link:hover {
+  text-decoration-color: var(--accent-2);
+}
+
 /* ============================================================
    SCROLLBAR
    ============================================================ */
@@ -146,6 +159,7 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 5px;
   padding: 4px;
+  z-index: 1002;
 }
 
 .nav-toggle span {
@@ -159,6 +173,32 @@ img { max-width: 100%; display: block; }
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Close button inside mobile menu — hidden on desktop */
+.nav-close-item {
+  display: none;
+}
+
+.nav-close {
+  background: none;
+  border: 2px solid var(--border-glass);
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+  line-height: 1;
+}
+
+.nav-close:hover {
+  border-color: var(--accent-2);
+  background: rgba(171, 199, 201, 0.1);
+}
 
 /* ============================================================
    HERO
@@ -368,6 +408,12 @@ img { max-width: 100%; display: block; }
   border-radius: 2px;
 }
 
+/* Centered section titles — override underline position */
+.section-title[style*="text-align:center"]::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* Glass cards */
 .glass-card {
   background: var(--gradient-card);
@@ -386,18 +432,113 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   PROJECT SHOWCASE
+   PROJECT CARDS — Main page compact layout
    ============================================================ */
-.project-showcase {
+.projects-section {
   background: var(--bg-secondary);
 }
 
-.project-showcase--alt {
-  background: var(--bg-primary);
+.projects-intro {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
 }
 
+.project-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 2.5rem;
+  background: var(--gradient-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.project-card:hover {
+  border-color: rgba(171, 199, 201, 0.3);
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2), var(--shadow-glow);
+}
+
+.project-card--reverse {
+  grid-template-columns: 1fr 420px;
+}
+
+.project-card--reverse .project-card__image {
+  order: 2;
+}
+
+.project-card--reverse .project-card__body {
+  order: 1;
+}
+
+.project-card__image {
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .project-card__image img {
+  transform: scale(1.04);
+}
+
+.project-card__body {
+  padding: 2rem 2.5rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.project-card--reverse .project-card__body {
+  padding: 2rem 0 2rem 2.5rem;
+}
+
+.project-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.project-card__context {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.project-card__desc {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.project-card__cta {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+}
+
+/* Project label (pill) — always above the title as block */
 .project-label {
   display: inline-block;
+  width: fit-content;
+  align-self: flex-start;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -415,13 +556,27 @@ img { max-width: 100%; display: block; }
   font-size: 0.95rem;
   margin-bottom: 2.5rem;
   font-weight: 400;
+  text-align: left;
+}
+
+/* ============================================================
+   PROJECT SHOWCASE — Detail pages
+   ============================================================ */
+.project-showcase {
+  background: var(--bg-secondary);
+}
+
+.project-showcase--alt {
+  background: var(--bg-primary);
 }
 
 /* Showcase text blocks */
 .showcase-block {
   margin-bottom: 2.5rem;
+  text-align: left;
 }
 
+.showcase-block h2,
 .showcase-block h3 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
@@ -432,6 +587,7 @@ img { max-width: 100%; display: block; }
   padding-left: 1rem;
 }
 
+.showcase-block h2::before,
 .showcase-block h3::before {
   content: '';
   position: absolute;
@@ -448,6 +604,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.02rem;
   line-height: 1.75;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .showcase-body {
@@ -455,6 +612,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.02rem;
   line-height: 1.75;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 /* ============================================================
@@ -471,7 +629,7 @@ img { max-width: 100%; display: block; }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-/* Centered gallery — for QD manufacturing images */
+/* Centered gallery — for manufacturing images */
 .showcase-gallery--centered {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -488,13 +646,13 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border: 1px solid var(--border-glass);
   cursor: pointer;
-  transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+  transition: box-shadow 0.4s var(--ease-out);
   background: rgba(65, 90, 98, 0.1);
 }
 
+/* FIX: No translateY or scale on hover — only box-shadow to avoid layout shift and text transform weirdness */
 .gallery-item:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(171, 199, 201, 0.06);
 }
 
 .gallery-item img {
@@ -559,7 +717,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .tag {
@@ -571,62 +729,39 @@ img { max-width: 100%; display: block; }
   background: rgba(171, 199, 201, 0.1);
   color: var(--accent-2);
   border: 1px solid rgba(171, 199, 201, 0.18);
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s;
 }
 
 .tag:hover {
   background: rgba(171, 199, 201, 0.2);
-  transform: translateY(-1px);
 }
 
 /* ============================================================
-   ROBOTICS — V2: text-above, media side-by-side below
+   DETAIL PAGE — shared styles for qd.html, tgse.html
    ============================================================ */
-.robotics-layout-v2 {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+.detail-page {
+  padding-top: calc(var(--section-pad) + 2rem);
+  background: var(--bg-secondary);
 }
 
-.robotics-text-v2 .section-title {
+.detail-title {
+  display: block;
   margin-bottom: 0.5rem;
 }
 
-.robotics-text-v2 .project-context {
-  margin-bottom: 1.5rem;
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
 }
 
-.robotics-text-v2 .showcase-body {
-  margin-bottom: 1.5rem;
-  max-width: 780px;
-}
-
-.robotics-media-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.robotics-media-item .gallery-item {
-  border-radius: 16px;
-}
-
-.robotics-media-item .gallery-item img {
-  height: 320px;
-  object-fit: cover;
-}
-
-.robotics-media-item .showcase-video {
-  margin-bottom: 0;
-}
-
-.robotics-media-item .showcase-video video {
-  max-width: 100%;
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 16px;
+.back-link:hover {
+  color: var(--text-primary);
 }
 
 /* ============================================================
@@ -678,6 +813,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1rem;
   font-size: 1.02rem;
   line-height: 1.75;
+  text-align: left;
 }
 
 .about-text strong {
@@ -831,6 +967,14 @@ img { max-width: 100%; display: block; }
   .nav-links.open { right: 0; }
   .nav-links a { font-size: 1.2rem; }
 
+  /* Show close button inside mobile menu */
+  .nav-close-item {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
   /* Hero stacking */
   .hero-content {
     flex-direction: column-reverse;
@@ -853,10 +997,34 @@ img { max-width: 100%; display: block; }
     justify-content: center;
   }
 
+  /* Project cards — stack to single column */
+  .project-card,
+  .project-card--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card__image {
+    min-height: 220px;
+    max-height: 280px;
+  }
+
+  .project-card__body,
+  .project-card--reverse .project-card__body {
+    padding: 1.5rem;
+  }
+
+  .project-card--reverse .project-card__image {
+    order: 0;
+  }
+
+  .project-card--reverse .project-card__body {
+    order: 0;
+  }
+
   /* About stacking */
   .about-layout {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
   }
 
   .about-portrait {
@@ -866,18 +1034,8 @@ img { max-width: 100%; display: block; }
   }
 
   .about-text .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* Robotics stacking */
-  .robotics-media-row {
-    grid-template-columns: 1fr;
-  }
-
-  .robotics-media-item .gallery-item img,
-  .robotics-media-item .showcase-video video {
-    height: 250px;
+    left: 0;
+    transform: none;
   }
 
   /* Gallery adjustments */
@@ -919,5 +1077,10 @@ img { max-width: 100%; display: block; }
   .gallery-item--wide img,
   .gallery-item--hero img {
     height: 200px;
+  }
+
+  .project-card__image {
+    min-height: 180px;
+    max-height: 240px;
   }
 }

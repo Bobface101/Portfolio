@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick-Disconnect Arm | Kethan Flores</title>
+  <meta name="description" content="Deep dive into the Quick-Disconnect Arm — a pneumatically controlled latching mechanism for the UW 2026 rocket oxidizer fill system.">
+  <meta property="og:title" content="Quick-Disconnect Arm | Kethan Flores">
+  <meta property="og:description" content="Pneumatically controlled latching mechanism for the UW 2026 rocket oxidizer fill system.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="navbar" class="navbar">
+    <a href="index.html" class="nav-logo">KF</a>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li class="nav-close-item"><button id="nav-close" class="nav-close" aria-label="Close menu">&times;</button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== PROJECT DETAIL ========== -->
+  <section class="section detail-page">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">&larr; Back to Projects</a>
+
+      <span class="project-label">Featured Project</span>
+      <h1 class="section-title detail-title">Quick-Disconnect Arm</h1>
+      <p class="project-context"><a href="https://www.waterloorocketry.com/" target="_blank" rel="noopener" class="inline-link">Waterloo Rocketry</a> · Propulsion Team · Oct 2025 — Present</p>
+
+      <!-- Overview -->
+      <div class="showcase-block">
+        <h2>Overview</h2>
+        <p>The goal of this project was to design a pneumatically controlled latching mechanism to fill the UW 2026 rocket with oxidizer, reliably disconnecting on command to allow the engine's injector valves to open. Joining Waterloo Rocketry and taking on this as a first project was a massive step up from my solo robotics builds. It was my first deep dive into an industry-standard design cycle, where I had to learn formal failure mode mitigation (FMEA), rigorous documentation, and structured testing.</p>
+      </div>
+
+      <!-- Image Gallery -->
+      <div class="showcase-gallery">
+        <div class="gallery-item" data-full="assets/qd_piston_cad.webp">
+          <img src="assets/qd_piston_cad.webp" alt="QD Arm — Piston CAD model" loading="lazy">
+          <span class="gallery-caption">Piston CAD Model</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_drawing.webp">
+          <img src="assets/qd_drawing.webp" alt="QD Arm — Technical drawing" loading="lazy">
+          <span class="gallery-caption">Technical Drawing</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_latch.webp">
+          <img src="assets/qd_latch.webp" alt="QD Arm — Latch mechanism" loading="lazy">
+          <span class="gallery-caption">Latch Mechanism</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_valve_integration_cad.webp">
+          <img src="assets/qd_valve_integration_cad.webp" alt="QD Arm — Valve integration CAD" loading="lazy">
+          <span class="gallery-caption">Valve Integration CAD</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_pid.webp">
+          <img src="assets/qd_pid.webp" alt="QD Arm — P&ID diagram" loading="lazy">
+          <span class="gallery-caption">P&amp;ID Diagram</span>
+        </div>
+      </div>
+
+      <!-- Manufacturing -->
+      <div class="showcase-block">
+        <h2>Manufacturing</h2>
+        <p>Actually machining and welding the parts myself revealed a lot about how design and material selection directly impact manufacturing. For example, I originally planned to use tight-tolerance guide rods to slide the piston away from the rocket body after the disconnect. What I didn't realize on the screen was that because my bores were machined across two separate mounting brackets, aligning those rails perfectly in the real world was virtually impossible. It forced me to completely rethink my approach, ultimately resulting in a much more robust, self-aligning mechanism.</p>
+      </div>
+
+      <!-- Manufacturing images -->
+      <div class="showcase-gallery showcase-gallery--centered">
+        <div class="gallery-item gallery-item--wide" data-full="assets/qd_cnc.webp">
+          <img src="assets/qd_cnc.webp" alt="QD Arm — CNC machining" loading="lazy">
+          <span class="gallery-caption">CNC Machining</span>
+        </div>
+        <div class="gallery-item gallery-item--wide" data-full="assets/qd_assembly.webp">
+          <img src="assets/qd_assembly.webp" alt="QD Arm — Final assembly" loading="lazy">
+          <span class="gallery-caption">Final Assembly</span>
+        </div>
+      </div>
+
+      <!-- Testing & Integration -->
+      <div class="showcase-block">
+        <h2>Testing &amp; Integration</h2>
+        <p>During assembly, I verified that all parts met their dimensional tolerances before moving into validation. I wrote the final test procedures and created the plumbing schematics to pressurize the system, simulating the conditions of a real launch. Seeing the system successfully achieve nominal operation during testing was very rewarding.</p>
+        <p>As the build progressed, I worked closely with other subsystem members to integrate the QD arm with the ongoing development of the internal injector valves. This meant resizing legacy valve CAD and modifying the rocket-side geometry to ensure everything interfaced properly with my new design.</p>
+      </div>
+
+      <!-- Test video -->
+      <div class="showcase-video">
+        <video controls preload="auto" playsinline>
+          <source src="assets/qd_test.mp4" type="video/mp4">
+          <source src="assets/qd_test.mov" type="video/quicktime">
+          Your browser does not support the video tag.
+        </video>
+        <span class="gallery-caption">System Test — Pneumatic Ejection</span>
+      </div>
+
+      <!-- Takeaway -->
+      <div class="showcase-block">
+        <h2>Takeaway</h2>
+        <p>Overall, the QD arm taught me what it actually takes to drive a piece of hardware through the entire design cycle, from a blank CAD file and theoretical math to a fully integrated, functional system on a rocket.</p>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">SolidWorks</span>
+        <span class="tag">FEA</span>
+        <span class="tag">FMEA</span>
+        <span class="tag">GD&amp;T</span>
+        <span class="tag">DFM</span>
+        <span class="tag">CNC</span>
+        <span class="tag">Welding</span>
+        <span class="tag">P&amp;ID</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>&copy; 2026 Kethan Flores. Built with passion and precision.</p>
+  </footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <img class="lightbox-img" src="" alt="Full-size image">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

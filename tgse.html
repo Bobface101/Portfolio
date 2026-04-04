@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trailer-Mounted Tank Stand | Kethan Flores</title>
+  <meta name="description" content="Engineering a 3-axis adjustable, collapsible frame for the Waterloo Rocketry propellant tank — designed for 10+ year operational lifespan.">
+  <meta property="og:title" content="Trailer-Mounted Tank Stand | Kethan Flores">
+  <meta property="og:description" content="3-axis adjustable, collapsible frame for a 14-foot propellant tank on a trailer-mounted test configuration.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="navbar" class="navbar">
+    <a href="index.html" class="nav-logo">KF</a>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li class="nav-close-item"><button id="nav-close" class="nav-close" aria-label="Close menu">&times;</button></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== PROJECT DETAIL ========== -->
+  <section class="section detail-page">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">&larr; Back to Projects</a>
+
+      <span class="project-label">Featured Project</span>
+      <h1 class="section-title detail-title">Trailer-Mounted Tank Stand</h1>
+      <p class="project-context"><a href="https://www.waterloorocketry.com/" target="_blank" rel="noopener" class="inline-link">Waterloo Rocketry</a> · Propulsion Team · Jan 2026 — Present</p>
+
+      <!-- Overview -->
+      <div class="showcase-block">
+        <h2>Overview</h2>
+        <p>My second major project at Waterloo Rocketry (currently in progress) is the Trailer-Mounted Tank Stand. By Fall 2026, the team aims to transition from a fixed test site to a fully flexible, trailer-mounted test configuration. To make this happen, I engineered a 3-axis adjustable, collapsible frame designed to suspend our 14-foot propellant tank and act as the primary structural routing for the feed system plumbing.</p>
+      </div>
+
+      <!-- Full CAD -->
+      <div class="showcase-gallery showcase-gallery--wide">
+        <div class="gallery-item gallery-item--hero" data-full="assets/tgse_cad.webp">
+          <img src="assets/tgse_cad.webp" alt="Tank Stand — Full CAD assembly" loading="lazy">
+          <span class="gallery-caption">Full CAD Assembly</span>
+        </div>
+      </div>
+
+      <!-- Logistics -->
+      <div class="showcase-block">
+        <h2>Logistics</h2>
+        <p>While my QD Arm project was an exercise in tight tolerances and precision interfacing, the Tank Stand forced me to focus on safety, logistics, and long-term design. I was tasked with designing for a 10+ year operational lifespan. This completely shifted my design constraints, meaning motion mechanisms like bearings or lead screws were no longer feasible in the field due to the risk of long-term environmental corrosion. I had to engineer a gantry and telescoping system that could safely extend to a full 14 feet for static fire tests, yet collapse down compactly and reliably for transport.</p>
+      </div>
+
+      <!-- Structural & Transport -->
+      <div class="showcase-block">
+        <h2>Structural &amp; Transport Constraints</h2>
+        <p>Because this structure was going on the highway, it had to comply with road safety requirements and withstand sustained vibrational and dynamic loads. It also had to be light enough to not waste gas during towing, while remaining sturdy enough to support the tank load plus two personnel climbing on the sides. To optimize the structure for our budget, I spent hours in Excel performing manual yielding, buckling, and deflection calculations, alongside researching weld integrity across different failure modes. Once the math checked out, I validated the final structure using SolidWorks FEA simulations to guarantee our mandatory 5.0 Factor of Safety.</p>
+      </div>
+
+      <!-- Current status -->
+      <div class="showcase-block">
+        <h2>Current Status</h2>
+        <p>Unfortunately, hardware projects rarely go exactly to plan. Just as we were about to begin manufacturing, the melting snow revealed extensive rusting on the underside of our existing trailer. The frame was significantly weakened, meaning the team would need to purchase an entirely new one before we could proceed. So, while the Tank Stand is fully engineered and validated, it is currently waiting patiently in SolidWorks until we secure a new trailer to build it on.</p>
+      </div>
+
+      <!-- Rusted trailer image -->
+      <div class="showcase-gallery showcase-gallery--wide">
+        <div class="gallery-item gallery-item--wide" data-full="assets/tgse_rusted_trailer.webp">
+          <img src="assets/tgse_rusted_trailer.webp" alt="Rusted underside of trailer" loading="lazy">
+          <span class="gallery-caption">Rusted Underside of Trailer</span>
+        </div>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">SolidWorks</span>
+        <span class="tag">FEA</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Structural Analysis</span>
+        <span class="tag">Welding Design</span>
+        <span class="tag">Transport Safety</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>&copy; 2026 Kethan Flores. Built with passion and precision.</p>
+  </footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <img class="lightbox-img" src="" alt="Full-size image">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
