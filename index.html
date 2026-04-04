@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kethan Flores | Mechatronics Engineering</title>
+  <meta name="description" content="Portfolio of Kethan Flores — Mechatronics Engineering student at the University of Waterloo. Rocketry propulsion, structural design, and robotics.">
+  <meta property="og:title" content="Kethan Flores | Mechatronics Engineering">
+  <meta property="og:description" content="Mechatronics Engineering student at the University of Waterloo — rocketry propulsion, structural design, and robotics.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="navbar" class="navbar">
+    <a href="#hero" class="nav-logo">KF</a>
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="#qd">QD Arm</a></li>
+      <li><a href="#tgse">Tank Stand</a></li>
+      <li><a href="#robotics">Robotics</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content reveal">
+      <div class="hero-text">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Kethan Flores</h1>
+        <p class="hero-tagline">Mechatronics Engineering @ University of Waterloo</p>
+        <p class="hero-sub">I design, build, and test high-pressure mechanical systems for rockets. Scroll down to see what I've been working on.</p>
+        <div class="hero-links">
+          <a href="mailto:kethan.h.flores@gmail.com" class="btn btn-primary">Get in Touch</a>
+          <a href="https://linkedin.com/in/kethan-flores" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="assets/me_1.png" alt="Kethan Flores" loading="eager">
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ========== QD ARM PROJECT ========== -->
+  <section id="qd" class="section project-showcase">
+    <div class="container">
+      <span class="project-label reveal">Featured Project</span>
+      <h2 class="section-title reveal">Quick-Disconnect Arm</h2>
+      <p class="project-context reveal">Waterloo Rocketry · Propulsion Team · Oct 2025 — Present</p>
+
+      <!-- Overview -->
+      <div class="showcase-block reveal">
+        <h3>Overview</h3>
+        <p>The goal of this project was to design a pneumatically controlled latching mechanism to fill the UW 2026 rocket with oxidizer, reliably disconnecting on command to allow the engine's injector valves to open. Joining Waterloo Rocketry and taking on this as a first project was a massive step up from my solo robotics builds. It was my first deep dive into an industry-standard design cycle, where I had to learn formal failure mode mitigation (FMEA), rigorous documentation, and structured testing.</p>
+      </div>
+
+      <!-- Image Gallery -->
+      <div class="showcase-gallery reveal">
+        <div class="gallery-item" data-full="assets/qd_piston_cad.png">
+          <img src="assets/qd_piston_cad.png" alt="QD Arm — Piston CAD model" loading="lazy">
+          <span class="gallery-caption">Piston CAD Model</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_drawing.png">
+          <img src="assets/qd_drawing.png" alt="QD Arm — Technical drawing" loading="lazy">
+          <span class="gallery-caption">Technical Drawing</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_latch.png">
+          <img src="assets/qd_latch.png" alt="QD Arm — Latch mechanism" loading="lazy">
+          <span class="gallery-caption">Latch Mechanism</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_valve_integration_cad.png">
+          <img src="assets/qd_valve_integration_cad.png" alt="QD Arm — Valve integration CAD" loading="lazy">
+          <span class="gallery-caption">Valve Integration CAD</span>
+        </div>
+        <div class="gallery-item" data-full="assets/qd_pid.png">
+          <img src="assets/qd_pid.png" alt="QD Arm — P&ID diagram" loading="lazy">
+          <span class="gallery-caption">P&amp;ID Diagram</span>
+        </div>
+      </div>
+
+      <!-- Manufacturing -->
+      <div class="showcase-block reveal">
+        <h3>Manufacturing</h3>
+        <p>Actually machining and welding the parts myself revealed a lot about how design and material selection directly impact manufacturing. For example, I originally planned to use tight-tolerance guide rods to slide the piston away from the rocket body after the disconnect. What I didn't realize on the screen was that because my bores were machined across two separate mounting brackets, aligning those rails perfectly in the real world was virtually impossible. It forced me to completely rethink my approach, ultimately resulting in a much more robust, self-aligning mechanism.</p>
+      </div>
+
+      <!-- Manufacturing images -->
+      <div class="showcase-gallery showcase-gallery--centered reveal">
+        <div class="gallery-item gallery-item--wide" data-full="assets/qd_cnc.png">
+          <img src="assets/qd_cnc.png" alt="QD Arm — CNC machining" loading="lazy">
+          <span class="gallery-caption">CNC Machining</span>
+        </div>
+        <div class="gallery-item gallery-item--wide" data-full="assets/qd_assembly.png">
+          <img src="assets/qd_assembly.png" alt="QD Arm — Final assembly" loading="lazy">
+          <span class="gallery-caption">Final Assembly</span>
+        </div>
+      </div>
+
+      <!-- Testing & Integration -->
+      <div class="showcase-block reveal">
+        <h3>Testing &amp; Integration</h3>
+        <p>During assembly, I verified that all parts met their dimensional tolerances before moving into validation. I wrote the final test procedures and created the plumbing schematics to pressurize the system, simulating the conditions of a real launch. Seeing the system successfully achieve nominal operation during testing was very rewarding.</p>
+        <p>As the build progressed, I worked closely with other subsystem members to integrate the QD arm with the ongoing development of the internal injector valves. This meant resizing legacy valve CAD and modifying the rocket-side geometry to ensure everything interfaced properly with my new design.</p>
+      </div>
+
+      <!-- Test video -->
+      <div class="showcase-video reveal">
+        <video controls preload="auto">
+          <source src="assets/qd_test.mov" type="video/quicktime">
+          Your browser does not support the video tag.
+        </video>
+        <span class="gallery-caption">System Test — Pneumatic Ejection</span>
+      </div>
+
+      <!-- Takeaway -->
+      <div class="showcase-block reveal">
+        <h3>Takeaway</h3>
+        <p>Overall, the QD arm taught me what it actually takes to drive a piece of hardware through the entire design cycle, from a blank CAD file and theoretical math to a fully integrated, functional system on a rocket.</p>
+      </div>
+
+      <div class="project-tags reveal">
+        <span class="tag">SolidWorks</span>
+        <span class="tag">FEA</span>
+        <span class="tag">FMEA</span>
+        <span class="tag">GD&amp;T</span>
+        <span class="tag">DFM</span>
+        <span class="tag">CNC</span>
+        <span class="tag">Welding</span>
+        <span class="tag">P&amp;ID</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TGSE PROJECT ========== -->
+  <section id="tgse" class="section project-showcase project-showcase--alt">
+    <div class="container">
+      <span class="project-label reveal">Featured Project</span>
+      <h2 class="section-title reveal">Trailer-Mounted Tank Stand</h2>
+      <p class="project-context reveal">Waterloo Rocketry · Propulsion Team · Jan 2026 — Present</p>
+
+      <!-- Overview -->
+      <div class="showcase-block reveal">
+        <h3>Overview</h3>
+        <p>My second major project at Waterloo Rocketry (currently in progress) is the Trailer-Mounted Tank Stand. By Fall 2026, the team aims to transition from a fixed test site to a fully flexible, trailer-mounted test configuration. To make this happen, I engineered a 3-axis adjustable, collapsible frame designed to suspend our 14-foot propellant tank and act as the primary structural routing for the feed system plumbing.</p>
+      </div>
+
+      <!-- Image -->
+      <div class="showcase-gallery showcase-gallery--wide reveal">
+        <div class="gallery-item gallery-item--hero" data-full="assets/tgse_cad.png">
+          <img src="assets/tgse_cad.png" alt="Tank Stand — Full CAD assembly" loading="lazy">
+          <span class="gallery-caption">Full CAD Assembly</span>
+        </div>
+      </div>
+
+      <!-- Logistics -->
+      <div class="showcase-block reveal">
+        <h3>Logistics</h3>
+        <p>While my QD Arm project was an exercise in tight tolerances and precision interfacing, the Tank Stand forced me to focus on safety, logistics, and long-term design. I was tasked with designing for a 10+ year operational lifespan. This completely shifted my design constraints, meaning motion mechanisms like bearings or lead screws were no longer feasible in the field due to the risk of long-term environmental corrosion. I had to engineer a gantry and telescoping system that could safely extend to a full 14 feet for static fire tests, yet collapse down compactly and reliably for transport.</p>
+      </div>
+
+      <!-- Structural & Transport -->
+      <div class="showcase-block reveal">
+        <h3>Structural &amp; Transport Constraints</h3>
+        <p>Because this structure was going on the highway, it had to comply with road safety requirements and withstand sustained vibrational and dynamic loads. It also had to be light enough to not waste gas during towing, while remaining sturdy enough to support the tank load plus two personnel climbing on the sides. To optimize the structure for our budget, I spent hours in Excel performing manual yielding, buckling, and deflection calculations, alongside researching weld integrity across different failure modes. Once the math checked out, I validated the final structure using SolidWorks FEA simulations to guarantee our mandatory 5.0 Factor of Safety.</p>
+      </div>
+
+      <!-- Current status -->
+      <div class="showcase-block reveal">
+        <h3>Current Status</h3>
+        <p>Unfortunately, hardware projects rarely go exactly to plan. Just as we were about to begin manufacturing, the melting snow revealed extensive rusting on the underside of our existing trailer. The frame was significantly weakened, meaning the team would need to purchase an entirely new one before we could proceed. So, while the Tank Stand is fully engineered and validated, it is currently waiting patiently in SolidWorks until we secure a new trailer to build it on.</p>
+      </div>
+
+      <!-- Rusted trailer image -->
+      <div class="showcase-gallery showcase-gallery--wide reveal">
+        <div class="gallery-item gallery-item--wide" data-full="assets/tgse_rusted_trailer.png">
+          <img src="assets/tgse_rusted_trailer.png" alt="Rusted underside of trailer" loading="lazy">
+          <span class="gallery-caption">Rusted Underside of Trailer</span>
+        </div>
+      </div>
+
+      <div class="project-tags reveal">
+        <span class="tag">SolidWorks</span>
+        <span class="tag">FEA</span>
+        <span class="tag">Excel</span>
+        <span class="tag">Structural Analysis</span>
+        <span class="tag">Welding Design</span>
+        <span class="tag">Transport Safety</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ROBOTICS PROJECT ========== -->
+  <section id="robotics" class="section project-showcase">
+    <div class="container">
+      <div class="robotics-layout-v2 reveal">
+        <div class="robotics-text-v2">
+          <span class="project-label">Also Built</span>
+          <h2 class="section-title">Autonomous Game Robot</h2>
+          <p class="project-context">Caxton Robotics Team · Oct 2023 — Jun 2025</p>
+          <p class="showcase-body">Before rocketry, I led the electromechanical design for our school's robotics team. I engineered a laser-cut acrylic chassis optimized for front-wheel traction, tuned motor controllers for autonomous line-following, and troubleshot power systems under strict competition time constraints. This background gave me the systems-level thinking I bring to every project today.</p>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">PID Control</span>
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">Laser Cutting</span>
+          </div>
+        </div>
+        <div class="robotics-media-row">
+          <div class="robotics-media-item">
+            <div class="gallery-item" data-full="assets/robotics_car_picture_new.png">
+              <img src="assets/robotics_car_picture_new.png" alt="Autonomous line-following robot" loading="lazy">
+            </div>
+          </div>
+          <div class="robotics-media-item">
+            <div class="showcase-video">
+              <video controls preload="auto">
+                <source src="assets/robotics_test.mov" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
+              <span class="gallery-caption">Robot Test Run</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="about-layout reveal">
+        <div class="about-portrait">
+          <img src="assets/me_2.png" alt="Kethan Flores" loading="lazy">
+        </div>
+        <div class="about-text">
+          <h2 class="section-title">About Me</h2>
+          <p>I am a Mechatronics Engineering student at the University of Waterloo (3.94 GPA) focused on integrated high-pressure mechanical systems. As a member of the Waterloo Rocketry propulsion team, I design, manufacture, and test pneumatic valves and ground support structures.</p>
+          <p>I take projects from initial concept to final assembly, supporting my technical drawings and plumbing schematics with hands-on experience in CNC, manual milling, lathe operation, and welding. My background in robotics gives me a strong understanding of how electromechanical subsystems interface.</p>
+          <p>I apply this system-level approach by directing rigorous testing operations to ensure mechanical reliability and safety. I hold dual Canadian &amp; US citizenship and am fluent in English and Spanish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title reveal">Get in Touch</h2>
+      <p class="contact-intro reveal">Interested in working together? I'd love to hear from you.</p>
+      <div class="contact-links reveal">
+        <a href="mailto:kethan.h.flores@gmail.com" class="contact-card glass-card" id="contact-email">
+          <span class="contact-icon">✉️</span>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">kethan.h.flores@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/kethan-flores" target="_blank" rel="noopener" class="contact-card glass-card" id="contact-linkedin">
+          <span class="contact-icon">🔗</span>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/kethan-flores</span>
+        </a>
+        <a href="tel:+15195057354" class="contact-card glass-card" id="contact-phone">
+          <span class="contact-icon">📞</span>
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">(519) 505-7354</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>&copy; 2026 Kethan Flores. Built with passion and precision.</p>
+  </footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <img class="lightbox-img" src="" alt="Full-size image">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
