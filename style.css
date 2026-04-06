@@ -278,32 +278,70 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
-/* Hero portrait — larger */
-.hero-portrait {
-  flex: 0 0 340px;
-  width: 340px;
-  height: 420px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 3px solid var(--color-steel);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(171, 199, 201, 0.06);
+/* Hero portraits — overlapping dual-image composition */
+.hero-portraits {
   position: relative;
+  flex: 0 0 380px;
+  width: 380px;
+  height: 480px;
+}
+
+.hero-portrait {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--color-steel);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(171, 199, 201, 0.06);
+  position: absolute;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
 }
 
 .hero-portrait::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  border-radius: 27px;
+  inset: -2px;
+  border-radius: 22px;
   background: var(--gradient-accent);
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .hero-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Primary — large, front-and-center face portrait */
+.hero-portrait--primary {
+  width: 300px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hero-portrait--primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35), 0 0 90px rgba(171, 199, 201, 0.1);
+}
+
+/* Secondary — smaller, offset behind & to the right */
+.hero-portrait--secondary {
+  width: 200px;
+  height: 260px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  border-color: rgba(65, 90, 98, 0.7);
+}
+
+.hero-portrait--secondary::before {
+  opacity: 0.15;
+}
+
+.hero-portrait--secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35), 0 0 60px rgba(171, 199, 201, 0.08);
 }
 
 /* Buttons */
@@ -982,10 +1020,21 @@ img { max-width: 100%; display: block; }
     gap: 2rem;
   }
 
-  .hero-portrait {
-    flex: 0 0 240px;
-    width: 240px;
-    height: 300px;
+  .hero-portraits {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .hero-portrait--primary {
+    width: 220px;
+    height: 290px;
+  }
+
+  .hero-portrait--secondary {
+    width: 150px;
+    height: 200px;
   }
 
   .hero-sub {
