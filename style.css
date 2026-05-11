@@ -991,6 +991,7 @@ img { max-width: 100%; display: block; }
   }
 
   .nav-links.open { right: 0; }
+  .nav-toggle.open { display: none; }
   .nav-links a { font-size: 1.2rem; }
 
   /* Show close button inside mobile menu */
